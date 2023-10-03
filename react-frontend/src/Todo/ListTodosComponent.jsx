@@ -51,6 +51,10 @@ function ListTodosComponent() {
         navigate(`/todo/${id}`)
     }
 
+    function addNewTodo(id) {
+        navigate(`/todo/-1`)
+    }
+
     return (
         <div className='container'>
             <h1>Things You Want To Do!</h1>
@@ -73,7 +77,7 @@ function ListTodosComponent() {
                                 <tr key={todo.id}>
                                     <td>{todo.description}</td>
                                     <td>{todo.done.toString()}</td>
-                                    <td>{todo.targetDate.toString()}</td>
+                                    <td>{todo.targetDate}</td>
                                     <td><button className="btn btn-warning"
                                                 onClick={() => deleteTodo(todo.id)}>Delete</button></td>
                                     <td><button className="btn btn-success"
@@ -84,6 +88,10 @@ function ListTodosComponent() {
                     }
                     </tbody>
                 </table>
+            </div>
+            <div>
+                <button className="btn btn-success m-5"
+                        onClick={addNewTodo}>Add New Todo</button>
             </div>
         </div>
     )
